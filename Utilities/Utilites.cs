@@ -15,7 +15,7 @@ namespace Utilities
 
             if (!Validate(obj, out results))
             {
-                throw new Exception(results.Select(o => o.ErrorMessage).ToString());
+                throw new Exception(results.Select(o => o.ErrorMessage).First().ToString());
             }
 
             for (var i = 1; i < number; i++)
@@ -52,7 +52,7 @@ namespace Utilities
 
             if (!Validate(obj, out results))
             {
-                throw new Exception(results.Select(o => o.ErrorMessage).ToString());
+                throw new Exception(results.Select(o => o.ErrorMessage).First().ToString());
             }
 
             int divider = 2;
