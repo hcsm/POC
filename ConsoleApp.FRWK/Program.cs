@@ -21,7 +21,7 @@ namespace ConsoleApp.FRWK
                     Console.Clear();
                     Console.WriteLine("Resultado:");
                     Console.WriteLine("");
-                    FRWKChallenge obj = Utilites.DecomposeNumberMethod2(value);
+                    FRWKChallenge obj = NumericalOperations.DecomposeNumberMethod2(value);
                     string json = JsonConvert.SerializeObject(obj);
                     Console.WriteLine(json);
                     Console.WriteLine();

@@ -3,10 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Text;
 
 namespace Utilities
 {
-    public static class Utilites
+    public static class NumericalOperations
     {
         public static FRWKChallenge DecomposeNumberMethod2(int number)
         {
@@ -29,7 +30,7 @@ namespace Utilities
             obj.lstDivisors.Add(number);
 
             int divider = 2;
-            
+
             while (number != 1)
             {
                 while (number % divider != 0)
@@ -97,5 +98,6 @@ namespace Utilities
 
             return Validator.TryValidateObject(obj, new ValidationContext(obj), results, true);
         }
+
     }
 }
