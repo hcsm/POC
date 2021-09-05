@@ -1,18 +1,18 @@
-﻿using Domain.Entity.FRWK;
-using System;
-using System.Web.Http;
-using System.Web.Http.Description;
+﻿using System;
+using Domain.Entity.FRWK;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Utilities;
 
 namespace Api.FRWK.Controllers
 {
-    [RoutePrefix("Client")]
-    public class ClientController : ApiController
+    [Consumes("application/json")]
+    [Route("api/client")]
+    public class ClientController : Controller
     {
-        [HttpPost]
-        [Route("FRWKChallenge")]
-        [ResponseType(typeof(FRWKChallenge))]
-        public IHttpActionResult GetObjectChallenge(int number)
+        [HttpGet("{number}")]
+        [Route("FRWKChallenge/{number}")]
+        public IActionResult GetObjectChallenge(int number)
         {
             try
             {
@@ -22,7 +22,8 @@ namespace Api.FRWK.Controllers
             }
             catch (Exception Ex)
             {
-                return InternalServerError(Ex);
+                var result = StatusCode(StatusCodes.Status500InternalServerError, Ex.Message);
+                return result;
             }
         }
     }
